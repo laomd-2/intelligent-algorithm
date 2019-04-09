@@ -1,12 +1,11 @@
 import numpy as np
 from maze import get_neighbor, reward
 
-def value_iteration(n, R, gamma=1, theta=1e-5):
+def value_iteration(n, gamma=1, theta=1e-5):
     '''
     @description: 值迭代函数
     @param 
         n: 状态个数
-        R: 效用值函数
         gamma: 折扣
         theta: 收敛误差
     @return: 最优行动策略
@@ -35,16 +34,3 @@ def value_iteration(n, R, gamma=1, theta=1e-5):
             break
         V = new_V
     return bests
-
-if __name__ == "__main__":
-    n = 3 * 4
-    res = value_iteration(n, reward)
-    res.reverse()
-    print(res)
-    res = np.array(res)
-    res.resize((3, 4))
-    directions = dict([(-1, '←'), (1, '→'), (-4, '↓'), (4, '↑'), (None, 'o')])
-    for row in res:
-        for i in reversed(row):
-            print(directions[i], end=' ')
-        print()
