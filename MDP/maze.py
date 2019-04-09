@@ -31,13 +31,15 @@ def get_neighbor(s):
     neighbors = dict()
     if s == 11 or s == 7 or s == 5:     # 终点和墙不能作为起始状态，无邻居
         return neighbors
-    for d in (-1, 1, -4, 4):    # 四个方向
-        neighbors.setdefault(d, [])
+    delta = (-1, 1, -4, 4)
+    for i in range(4):    # 四个方向
+        neighbors.setdefault(i, [])
+        d = delta[i]
         forward = wall_wrap(s + d, s)
-        neighbors[d].append((0.8, forward)) # 向前的概率是0.8
+        neighbors[i].append((0.8, forward)) # 向前的概率是0.8
 
         v = 4 if abs(d) == 1 else 1
         vertical = [wall_wrap(s - v, s), wall_wrap(s + v, s)]
         for v in vertical:
-            neighbors[d].append((0.1, v))
+            neighbors[i].append((0.1, v))
     return neighbors
