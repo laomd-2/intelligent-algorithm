@@ -9,7 +9,7 @@ python3 main.py 1  # 使用策略迭代
 
 ### 2 运行结果
 
-![1554808879704](C:\Users\laomd\AppData\Roaming\Typora\typora-user-images\1554808879704.png)
+![1554808879704](运行结果.PNG)
 
 ### 3 文件说明
 
